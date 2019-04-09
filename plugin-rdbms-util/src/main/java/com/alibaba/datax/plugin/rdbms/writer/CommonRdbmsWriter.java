@@ -543,7 +543,11 @@ public class CommonRdbmsWriter {
         }
 
         private void calcWriteRecordSql() {
-            if (!VALUE_HOLDER.equals(calcValueHolder(""))) {
+            // 增加插入记录模板
+            if(StringUtils.isNoneEmpty(INSERT_OR_REPLACE_TEMPLATE)){
+                writeRecordSql = String.format(INSERT_OR_REPLACE_TEMPLATE, this.table);
+            }
+            else if (!VALUE_HOLDER.equals(calcValueHolder(""))) {
                 List<String> valueHolders = new ArrayList<String>(columnNumber);
                 for (int i = 0; i < columns.size(); i++) {
                     String type = resultSetMetaData.getRight().get(i);
@@ -559,6 +563,7 @@ public class CommonRdbmsWriter {
                 INSERT_OR_REPLACE_TEMPLATE = WriterUtil.getWriteTemplate(columns, valueHolders, writeMode, dataBaseType, forceUseUpdate);
                 writeRecordSql = String.format(INSERT_OR_REPLACE_TEMPLATE, this.table);
             }
+            LOG.info("writeRecordSql:"+writeRecordSql);
         }
 
         protected String calcValueHolder(String columnType) {
