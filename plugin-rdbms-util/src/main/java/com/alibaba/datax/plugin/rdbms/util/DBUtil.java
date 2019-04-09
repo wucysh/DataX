@@ -388,6 +388,11 @@ public final class DBUtil {
                                                    String url, Properties prop) {
         try {
             Class.forName(dataBaseType.getDriverClassName());
+            //
+            if (dataBaseType ==DataBaseType.RDBMS){
+                loadDriverClass("reader", dataBaseType.getTypeName());
+                loadDriverClass("writer", dataBaseType.getTypeName());
+            }
             DriverManager.setLoginTimeout(Constant.TIMEOUT_SECONDS);
             return DriverManager.getConnection(url, prop);
         } catch (Exception e) {
