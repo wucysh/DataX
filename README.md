@@ -1,9 +1,8 @@
 ![Datax-logo](https://github.com/alibaba/DataX/blob/master/images/DataX-logo.jpg)
 # NOTES
-fe2857ca(解决RDBMS 驱动加载问题【临时方案】) 解决RDBMS 驱动无法正常加载问题 
-41fe46be(hdfswriter增加writeMode | 覆盖) |增加HDFS文件覆盖模式 
-8e064b1c(RDBMS 增加写入SQL模板功能)解决特殊插入语法 
-
+1. fe2857ca(解决RDBMS 驱动加载问题【临时方案】) 解决RDBMS 驱动无法正常加载问题  
+2. 41fe46be(hdfswriter增加writeMode | 覆盖) |增加HDFS文件覆盖模式  
+3. 8e064b1c(RDBMS 增加写入SQL模板功能)解决特殊插入语法 
 
 # DataX
 
